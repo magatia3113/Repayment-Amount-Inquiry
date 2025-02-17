@@ -1,0 +1,15 @@
+테마 컬러 :  #00476b 
+
+
+화면 상단 부분  550 x 837
+
+
+main.html  - 이미지 삽입 장소 
+<div class="iQ__YIMyTtLQ Space" style="height: 20%; width: 100%; margin-top: 0px; margin-bottom: 0px;"></div>
+
+
+survey.html - 이미지 삽입 장소 
+
+  <div class="iQ__HWdOvnZ8 BgImage"
+
+
