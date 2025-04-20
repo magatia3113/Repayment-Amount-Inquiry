@@ -63,22 +63,19 @@
                   
                   
                       <!-- 에러메시지 -->
-                  <div class="iQ__wjKzz9YU InputErrorMessage" style="opacity: 0; background-color: rgb(247, 79, 120);">　</div>
+                  <!-- <div class="iQ__wjKzz9YU InputErrorMessage" style="opacity: 0; background-color: rgb(247, 79, 120);">　</div> -->
 
 
                   
-                  <!-- <input class="iQ__SWw1SgrC dark TextInput" maxlength="9999" type="text" placeholder="텍스트를 입력해 주세요." style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
-                      <div class="a1"></div>
+                  <input class="iQ__SWw1SgrC dark TextInput" maxlength="9999" type="text" placeholder="텍스트를 입력해 주세요." style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
+                      
                           
                       <input class="iQ__SWw1SgrC dark TextInput" maxlength="9999" type="text" placeholder="텍스트를 입력해 주세요." style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
-                      <div class="a1"></div>
 
                       <input class="iQ__SWw1SgrC dark TextInput" maxlength="9999" type="text" placeholder="텍스트를 입력해 주세요." style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
-                      <div class="a1"></div>
 
 
                       <input class="iQ__SWw1SgrC dark TextInput" maxlength="9999" type="text" placeholder="텍스트를 입력해 주세요." style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
-                      <div class="a1"></div> -->
 
                       
 
@@ -95,7 +92,7 @@
 
                 <div class="iQ__NpP1fScH btnContainer" style="opacity: 1; transform-origin: 50% 50%; transform: scale(1) translate3d(0px, 0px, 0px); visibility: visible;">
                   <div class="iQ__ypfSvQyC btnT2 Button" style="background: rgb(0, 0, 0); box-shadow: rgba(255, 111, 67, 0.34) 0px 5px 20px; width: 40%; transition: transform 0.2s ease-in-out, background-color 0.2s, opacity 0.2s;">
-                    <div class="iQ__A3Xd5FXB btnIcon"><span class="iQ__UFDWJnkL material-icons" style="color: rgb(255, 255, 255); font-size: 24px; margin-right: 10px;">chevron_right</span></div>
+                    
                     <div class="iQ__1Zn0lTog btnText" style="font-size: 16px; color: rgb(255, 255, 255); font-weight: 500; padding: 6px;">변제금 조회하기</div>
                   </div>
                 </div>
@@ -125,51 +122,6 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("YVOYKFfAqPUTidCfUd"); // 이메일JS public key
-    })();
-  </script>
-  
-
-  <script>
-    document.querySelector('.btnContainer').addEventListener('click', function () {
-      const inputs = document.querySelectorAll('.TextInput');
-      const [name, debt, income, usage, phone] = [...inputs].map(input => input.value);
-  
-      if (!name || !debt || !income || !usage || !phone) {
-        alert("모든 정보를 입력해 주세요.");
-        return;
-      }
-  
-      const templateParams = {
-        from_name: name,
-        debt_amount: debt,
-        income_amount: income,
-        usage_info: usage,
-        contact: phone
-      };
-  
-      emailjs.send('magatia', 'template_9v9ron2', templateParams)
-        .then(function(response) {
-          alert("정상적으로 발송되었습니다.");
-        }, function(error) {
-          alert("오류가 발생했습니다. 다시 시도해주세요.");
-          console.log(error);
-        });
-    });
-  </script>
-  
-
-
-
-
-  
-  
-  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" nonce="" data-cf-beacon="{&quot;rayId&quot;:&quot;913419c74c94f61d&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.1.0&quot;,&quot;token&quot;:&quot;cf9d13c0671a473b8dfd6b866dabbcc0&quot;}" crossorigin="anonymous"></script>
-
-
 
 
 
@@ -180,6 +132,51 @@
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YVOYKFfAqPUTidCfUd"); // 이메일JS public key
+  })();
+</script>
+
+
+<script>
+  document.querySelector('.btnContainer').addEventListener('click', function () {
+    const inputs = document.querySelectorAll('.TextInput');
+    const [name, debt, income, usage, phone] = [...inputs].map(input => input.value);
+
+    if (!name || !debt || !income || !usage || !phone) {
+      alert("모든 정보를 입력해 주세요.");
+      return;
+    }
+
+    const templateParams = {
+      from_name: name,
+      debt_amount: debt,
+      income_amount: income,
+      usage_info: usage,
+      contact: phone
+    };
+
+    emailjs.send('magatia', 'template_9v9ron2', templateParams)
+      .then(function(response) {
+        alert("정상적으로 발송되었습니다.");
+      }, function(error) {
+        alert("오류가 발생했습니다. 다시 시도해주세요. (index.html)");
+        console.log(error);
+      });
+  });
+</script>
+
+
+
+
+
+
+
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" nonce="" data-cf-beacon="{&quot;rayId&quot;:&quot;913419c74c94f61d&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.1.0&quot;,&quot;token&quot;:&quot;cf9d13c0671a473b8dfd6b866dabbcc0&quot;}" crossorigin="anonymous"></script>
+
 
 
   
@@ -709,12 +706,25 @@ margin-top:45px;
   
     .iQ__SWw1SgrC {
       caret-color: #ff6f43;
+      
+
+      margin-left:20px;
+      margin-bottom: 30px;
+
     }
   
+    
+  
+
+
+
     .iQ__SWw1SgrC::selection {
       background-color: rgba(255, 111, 67, .7);
     }
-  
+
+
+
+  /* 
     @font-face {
       font-family: "Material Icons";
       font-style: normal;
@@ -2968,7 +2978,7 @@ margin-top:45px;
       font-style: normal;
       font-weight: 700;
       src: url(https://fonts.gstatic.com/l/font?kit=PN_oRfi-oW3hYwmKDpxS7F_LQv37y0k38agsYe8iiuUmqLvrA6ruvMBBtik&skey=7e29fcddae682887&v=v26) format("woff2");
-    }
+    } */
   </style>
   
 
